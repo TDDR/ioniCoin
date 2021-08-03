@@ -1,0 +1,18 @@
+<ion-item [routerLink]="'/detail/' + coin.id">
+  <ion-label class="ion-text-wrap">
+    <h2>
+      {{coin.symbol}}
+      <span>
+        <ion-note class="price">Open: ${{this.coin?.currentNumbers?.open.toFixed(7)}}</ion-note>
+      </span>
+    </h2>
+    <h3>
+      {{coin.rank}} {{coin.name}}
+      <span>
+        <ion-note class="price">Close: ${{this.coin?.currentNumbers?.close.toFixed(7)}}</ion-note>
+      </span>
+    </h3>
+
+
+  </ion-label>
+</ion-item>

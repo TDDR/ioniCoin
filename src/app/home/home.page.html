@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-title>IoniCoin</ion-title>
+        </ion-col>
+        <ion-col>
+          <ion-button class="favBtn" (click)='favoritesClicked()'>Favorites</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">IoniCoin</ion-title>
+      <ion-button class="favBtn" (click)='favoritesClicked()'>Favorites</ion-button>
+    </ion-toolbar>
+  </ion-header>
+
+    <ion-item-sliding #sliding *ngFor='let coin of coins'>
+          <app-coins [coin]='coin'></app-coins>
+          <ion-item-options side="start" (ionSwipe)='addToFavorites(coin.id, sliding)'>
+            <ion-item-option color='success' (click)='addToFavorites(coin.id, sliding)' expandable>
+              <ion-label>Add</ion-label>
+            </ion-item-option>
+          </ion-item-options>
+    </ion-item-sliding>
+</ion-content>

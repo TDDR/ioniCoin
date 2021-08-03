@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-title>Favorites</ion-title>
+        </ion-col>
+        <ion-col>
+          <ion-button class="favBtn" (click)='homeClicked()'>Home</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-sliding *ngFor='let coin of favorites'>
+    <app-coins [coin]='coin'></app-coins>
+    <ion-item-options side="end" (ionSwipe)='removeFromFavorites(coin.id)'>
+      <ion-item-option color='danger' (click)='removeFromFavorites(coin.id)' expandable>
+        <ion-label>Remove</ion-label>
+      </ion-item-option>
+    </ion-item-options>
+</ion-item-sliding>
+</ion-content>

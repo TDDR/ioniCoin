@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-title>{{coin?.name}}</ion-title>
+        </ion-col>
+        <ion-col>
+          <ion-button class="favBtn" (click)='favoritesClicked()'>Favorites</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button class="favBtn" (click)='homeClicked()'>Home</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{coin?.name}}</ion-title>
+      <ion-button class="favBtn" (click)='favoritesClicked()'>Favorites</ion-button>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-label>
+          <h3>Rank:{{coin?.rank}}</h3>
+           <h4>{{coin?.id}}</h4>
+        </ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-button color='secondary' (click)='addToFavorites(coin?.id)'>Add {{coin?.symbol}} to Favorites</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-label>
+        <h4>Market Cap {{coin?.currentNumbers?.market_cap | currency: 'CAD' : 'symbol-narrow'}}</h4>
+        <h4>Volume     {{coin?.currentNumbers?.volume | currency: 'CAD' : 'symbol-narrow'}}</h4>
+      </ion-label>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label>
+          <h4>Open: {{coin?.currentNumbers?.open.toFixed(7)}}</h4>
+          <h4>Close: {{coin?.currentNumbers?.close.toFixed(7)}}</h4>
+        </ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-label>
+          <h4>High: {{coin?.currentNumbers?.high.toFixed(7)}}</h4>
+          <h4>Low: {{coin?.currentNumbers?.low.toFixed(7)}}</h4>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row style="padding-top: 10px; padding-bottom: 10px;">
+      <ion-label>{{coin?.description}}</ion-label>
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>
